@@ -1,7 +1,10 @@
+*{
+    max-width: 100vw;
+}
+
 header{
     background-color: blanchedalmond;
     text-align: right;
-    margin-bottom: 10px;
 }
 
 aside {

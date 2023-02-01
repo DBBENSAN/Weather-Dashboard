@@ -1,5 +1,7 @@
 const API_KEY = "0fb854934bc58130931f8acc673ec22f";
 
+//set document query selectors
+
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("#searchButton");
 const cityMain = document.querySelector("#city");
@@ -9,11 +11,15 @@ const dateMain = document.querySelector("#mainDate");
 const windMain = document.querySelector("#wind");
 const forecastContainer = document.querySelector("#forecastContainer");
 
+// adds functions to run on window load
+
 window.addEventListener("load", function () {
     updatePreviousSearches();
     updateWeather("Berkeley")
     updateForecast("Berkeley")
 });
+
+
 
 function updatePreviousSearches() {
     let previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
@@ -30,6 +36,17 @@ function updatePreviousSearches() {
     }
 }
 
+//adds a searched item into localStorage
+function addToLocalStorage(city) {
+    let previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
+    if (!previousSearches.includes(city)) {
+        previousSearches.push(city);
+        localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
+    }
+}
+
+
+//Allows for search functionality or the main display
 
 function updateWeather(city) {
     return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`)
@@ -49,6 +66,8 @@ function updateWeather(city) {
         })
 };
 
+
+//for the selected city, display also the 5 day forecast, returns HTML to make the card divs
 function updateForecast(city) {
     return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`)
         .then((response) => response.json())
@@ -80,25 +99,20 @@ function updateForecast(city) {
         });
 }
 
+
 searchButton.addEventListener("click", function () {
     const city = searchInput.value;
     updateWeather(city);
     updateForecast(city);
 });
 
-function addToLocalStorage(city) {
-    let previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
-    if (!previousSearches.includes(city)) {
-        previousSearches.push(city);
-        localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
-    }
-}
-
 searchButton.addEventListener("click", function () {
     const city = searchInput.value;
-    updateWeather(city);
+    updateWeather(city);f
     updateForecast(city);
     addToLocalStorage(city);
     updatePreviousSearches();
 });
+
+
 
