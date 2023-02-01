@@ -104,12 +104,6 @@ searchButton.addEventListener("click", function () {
     const city = searchInput.value;
     getWeather(city);
     getForecast(city);
-});
-
-searchButton.addEventListener("click", function () {
-    const city = searchInput.value;
-    getWeather(city);f
-    getForecast(city);
     addToLocalStorage(city);
     getPreviousSearches();
 });
