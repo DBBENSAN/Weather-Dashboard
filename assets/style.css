@@ -1,0 +1,31 @@
+header{
+    background-color: blanchedalmond;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+aside {
+    min-height: 100vh;
+    background-color: rgb(15, 129, 91);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 5px;
+}
+
+aside div > *{
+    border-radius: 5px;
+    background-color: rgb(169, 216, 200);
+    margin: 3px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#main-disp{
+    background-color: rgb(180, 199, 199);
+}
+
+#main-disp .jumbotron {
+    border: 5px solid;
+    padding: 5px;
+    margin: 5px;
+}
