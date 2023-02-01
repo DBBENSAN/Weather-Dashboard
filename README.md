@@ -9,8 +9,11 @@ Use the [OpenWeather API](https://openweathermap.org/) to retrieve weather data 
 
 Create fetch requests and use the data returned to create elements on the page. 
 
-## User Story
+![alt text](https://github.com/DBBENSAN/Weather-Dashboard/blob/main/assets/images/strinLit.PNG?raw=true)
 
+
+## User Story
+![alt text](https://github.com/DBBENSAN/Weather-Dashboard/blob/main/assets/images/weatherApp.PNG?raw=true)
 ```
 AS A traveler
 I WANT to see the weather outlook for multiple cities
