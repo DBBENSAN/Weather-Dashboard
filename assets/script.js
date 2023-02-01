@@ -26,13 +26,14 @@ $(function () {
     }
 })
 
+
 submitButton.on("click", function(event) {
     event.preventDefault();
     var targetCity = inputEl.val();
         console.log(targetCity);
     if (!cityList.includes(targetCity)) {
         previousButton = $("<button>").text(targetCity).attr("value", targetCity)
-        
+
     }
 })
 
@@ -85,3 +86,11 @@ function getMain(targetCity) {
 //         console.log('Not a city')
 //     }
 // }
+
+
+function rentalCarCost(d) {
+    var dayRate = 40
+  
+    if ()
+    // Your solution here
+  }
