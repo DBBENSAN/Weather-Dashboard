@@ -14,14 +14,14 @@ const forecastContainer = document.querySelector("#forecastContainer");
 // adds functions to run on window load
 
 window.addEventListener("load", function () {
-    updatePreviousSearches();
-    updateWeather("Berkeley")
-    updateForecast("Berkeley")
+    getPreviousSearches();
+    getWeather("Berkeley")
+    getForecast("Berkeley")
 });
 
 
 
-function updatePreviousSearches() {
+function getPreviousSearches() {
     let previousSearches = JSON.parse(localStorage.getItem("previousSearches")) || [];
     let previousSearchesContainer = document.getElementById("previousSearchesContainer");
     previousSearchesContainer.innerHTML = "";
@@ -29,8 +29,8 @@ function updatePreviousSearches() {
         let previousSearchElement = document.createElement("div");
         previousSearchElement.innerHTML = city;
         previousSearchElement.addEventListener("click", function () {
-            updateWeather(city);
-            updateForecast(city);
+            getWeather(city);
+            getForecast(city);
         });
         previousSearchesContainer.appendChild(previousSearchElement);
     }
@@ -48,7 +48,7 @@ function addToLocalStorage(city) {
 
 //Allows for search functionality or the main display
 
-function updateWeather(city) {
+function getWeather(city) {
     return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`)
         .then((response) => response.json())
         .then((data) => {
@@ -68,7 +68,7 @@ function updateWeather(city) {
 
 
 //for the selected city, display also the 5 day forecast, returns HTML to make the card divs
-function updateForecast(city) {
+function getForecast(city) {
     return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`)
         .then((response) => response.json())
         .then((data) => {
@@ -102,16 +102,16 @@ function updateForecast(city) {
 
 searchButton.addEventListener("click", function () {
     const city = searchInput.value;
-    updateWeather(city);
-    updateForecast(city);
+    getWeather(city);
+    getForecast(city);
 });
 
 searchButton.addEventListener("click", function () {
     const city = searchInput.value;
-    updateWeather(city);f
-    updateForecast(city);
+    getWeather(city);f
+    getForecast(city);
     addToLocalStorage(city);
-    updatePreviousSearches();
+    getPreviousSearches();
 });
 
 
