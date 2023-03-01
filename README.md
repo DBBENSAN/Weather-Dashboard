@@ -4,6 +4,8 @@
 
 For this project, I wanted to create a weather dashboard that allows me to view the weather in a certain city. Additionally, add the 5 day forecast with some basic icons of the weather. 
 
+[>>Deployed Site<<](https://dbbensan.github.io/Weather-Dashboard/)
+
 ## Learning Points
 Use the [OpenWeather API](https://openweathermap.org/) to retrieve weather data for cities. 
 
